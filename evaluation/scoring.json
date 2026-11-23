@@ -1,0 +1,6 @@
+{
+  "name": "scientific-rubric-v1-with-legacy-diagnostic",
+  "scientific_weights": {"data": 15, "model": 20, "outcome": 25, "method": 20, "reproducibility": 15, "reporting": 5},
+  "weights": {"correctness": 60, "evidence": 25, "format": 15},
+  "note": "Scientific weights apply only to tasks explicitly carrying scientific-rubric-v1. Legacy weights are retained for historical/smoke/private compatibility. Project-authored weights, not official course/GUM grades. Pending scientific reviews cannot enter RSI."
+}

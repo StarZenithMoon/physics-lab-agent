@@ -1,0 +1,11 @@
+{
+  "source": {
+    "organization": "JCGM",
+    "url": "https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf",
+    "section": "H.3, Table H.6",
+    "data_kind": "published_numerical_example"
+  },
+  "temperature_unit": "degC",
+  "correction_unit": "degC",
+  "scope": "Fitted mean correction only; no new-reading noise or instrument budget requested."
+}

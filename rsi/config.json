@@ -1,0 +1,23 @@
+{
+  "rounds": 3,
+  "target_skill": ".agents/skills/measurement-uncertainty/SKILL.md",
+  "model": null,
+  "agent": "lab-assistant",
+  "model_steps": 60,
+  "timeout_seconds": 300,
+  "resources": {
+    "memory_limit_mb": 1024,
+    "cpu_limit_percent": 10,
+    "max_processes": 32,
+    "max_log_mb": 32,
+    "min_available_memory_mb": 1536,
+    "runtime_free_floor_mb": 512,
+    "startup_wait_seconds": 300
+  },
+  "min_score_gain": 0.0,
+  "max_task_regression": 3.0,
+  "max_task_pass_rate_regression": 0.3333333333333333,
+  "overall_observation_regression_allowance": 1,
+  "tasks": "evaluation/public-cases.json",
+  "note": "model must be set to an actual provider/model before paid runs; model steps are not tool calls."
+}

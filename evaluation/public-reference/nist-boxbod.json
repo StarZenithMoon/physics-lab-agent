@@ -1,0 +1,20 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/BoxBOD.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "fc44fbed04e3be16df6498e722d4c8aedfd0af210110bc396d9f99acecd77e21",
+  "data_kind": "public_reference_observations",
+  "original_parameters": {
+    "amplitude": 213.80940889,
+    "rate": 0.54723748542
+  },
+  "normalized_parameters": {
+    "amplitude": 213.80940889,
+    "rate": 0.54723748542
+  },
+  "normalized_parameter_sd": [
+    12.354515176,
+    0.10455993237
+  ],
+  "residual_std": 17.088072423
+}

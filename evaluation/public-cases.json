@@ -1,0 +1,2207 @@
+{
+  "schema_version": "0.2",
+  "visibility": "public",
+  "notice": "Public development references, not hidden/generalization evidence. Related variants must be grouped before formal experiments.",
+  "tasks": [
+    {
+      "id": "nist-norris",
+      "split": "train",
+      "group": "nist-norris",
+      "capabilities": [
+        "data",
+        "fit",
+        "covariance_convention"
+      ],
+      "source": {
+        "organization": "NIST/ITL StRD",
+        "url": "https://www.itl.nist.gov/div898/strd/lls/data/LINKS/DATA/Norris.dat",
+        "retrieved": "2026-11-02",
+        "source_sha256": "5ab6906c68a9c4b2eb1661c0cd7d2a09f5a469a6d4e05b6b691f190f5f7b944f",
+        "data_kind": "public_reference_observations"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/nist-norris",
+        "instruction": "读取 raw.csv、meta.json 与 fit-input.json，按给定缩放坐标和模型做无权最小二乘，不能把残差尺度当已知仪器精度。参数使用 fit-input.json 中名称/坐标，写 result.parameters 与 result.residual_std；保留参数协方差和残差。本任务只检验给定数值模型，不推断仪器或物理真实性。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "fit.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.parameters.intercept",
+            "target": -0.262323073774029,
+            "atol": 2e-07,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.slope",
+            "target": 1.00211681802045,
+            "atol": 2e-07,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.residual_std",
+            "target": 0.884796396144373,
+            "atol": 0,
+            "rtol": 2e-05,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "fit.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 与认证参考采用相同模型/残差尺度；缩放变量后正确变换参数及协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nist-pontius",
+      "split": "selection",
+      "group": "nist-pontius",
+      "capabilities": [
+        "data",
+        "fit",
+        "covariance_convention"
+      ],
+      "source": {
+        "organization": "NIST/ITL StRD",
+        "url": "https://www.itl.nist.gov/div898/strd/lls/data/LINKS/DATA/Pontius.dat",
+        "retrieved": "2026-11-02",
+        "source_sha256": "de60baa5dc66fd804f9316f895bc5aa2b8f791c09d1ecc1ec39f8b199b8c15c7",
+        "data_kind": "public_reference_observations"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/nist-pontius",
+        "instruction": "读取 raw.csv、meta.json 与 fit-input.json，按给定缩放坐标和模型做无权最小二乘，不能把残差尺度当已知仪器精度。参数使用 fit-input.json 中名称/坐标，写 result.parameters 与 result.residual_std；保留参数协方差和残差。本任务只检验给定数值模型，不推断仪器或物理真实性。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "fit.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.parameters.intercept",
+            "target": 0.000673565789473684,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.linear",
+            "target": 0.732059160401003,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.quadratic",
+            "target": -0.00316081871345029,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.residual_std",
+            "target": 0.000205177424076185,
+            "atol": 0,
+            "rtol": 2e-05,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "fit.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 与认证参考采用相同模型/残差尺度；缩放变量后正确变换参数及协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nist-misra1a",
+      "split": "test",
+      "group": "nist-misra1a",
+      "capabilities": [
+        "data",
+        "fit",
+        "covariance_convention"
+      ],
+      "source": {
+        "organization": "NIST/ITL StRD",
+        "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Misra1a.dat",
+        "retrieved": "2026-11-02",
+        "source_sha256": "9d3194d537d9a6bbf92eb819504070923a1885d0191f40b6b3aaeedd130b98e2",
+        "data_kind": "public_reference_observations"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/nist-misra1a",
+        "instruction": "读取 raw.csv、meta.json 与 fit-input.json，按给定缩放坐标和模型做无权最小二乘，不能把残差尺度当已知仪器精度。参数使用 fit-input.json 中名称/坐标，写 result.parameters 与 result.residual_std；保留参数协方差和残差。本任务只检验给定数值模型，不推断仪器或物理真实性。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "fit.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.parameters.amplitude",
+            "target": 238.94212918,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.rate",
+            "target": 0.55015643181,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.residual_std",
+            "target": 0.1018787633,
+            "atol": 0,
+            "rtol": 2e-05,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "fit.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 与认证参考采用相同模型/残差尺度；缩放变量后正确变换参数及协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nist-rat42",
+      "split": "test",
+      "group": "nist-rat42",
+      "capabilities": [
+        "data",
+        "fit",
+        "covariance_convention"
+      ],
+      "source": {
+        "organization": "NIST/ITL StRD",
+        "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Rat42.dat",
+        "retrieved": "2026-11-02",
+        "source_sha256": "fc97dd1f94fbcb381495065a053e279f23588a9ceb243276f2a2c36c8225985b",
+        "data_kind": "public_reference_observations"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/nist-rat42",
+        "instruction": "读取 raw.csv、meta.json 与 fit-input.json，按给定缩放坐标和模型做无权最小二乘，不能把残差尺度当已知仪器精度。参数使用 fit-input.json 中名称/坐标，写 result.parameters 与 result.residual_std；保留参数协方差和残差。本任务只检验给定数值模型，不推断仪器或物理真实性。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "fit.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.parameters.amplitude",
+            "target": 72.462237576,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.center",
+            "target": 2.6180768402,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.rate",
+            "target": 0.067359200066,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.residual_std",
+            "target": 1.1587725499,
+            "atol": 0,
+            "rtol": 2e-05,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "fit.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 与认证参考采用相同模型/残差尺度；缩放变量后正确变换参数及协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nist-chwirut2",
+      "split": "selection",
+      "group": "nist-chwirut2",
+      "capabilities": [
+        "data",
+        "fit",
+        "covariance_convention"
+      ],
+      "source": {
+        "organization": "NIST/ITL StRD",
+        "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Chwirut2.dat",
+        "retrieved": "2026-11-02",
+        "source_sha256": "c37e5522a34f9a57e18d7d10f8736202eabc0c33b8e7ad0010e618db04b57411",
+        "data_kind": "public_reference_observations"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/nist-chwirut2",
+        "instruction": "读取 raw.csv、meta.json 与 fit-input.json，按给定缩放坐标和模型做无权最小二乘，不能把残差尺度当已知仪器精度。参数使用 fit-input.json 中名称/坐标，写 result.parameters 与 result.residual_std；保留参数协方差和残差。本任务只检验给定数值模型，不推断仪器或物理真实性。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "fit.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.parameters.decay",
+            "target": 0.16657666537,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.offset",
+            "target": 0.0051653291286,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.linear",
+            "target": 0.012150007096,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.residual_std",
+            "target": 3.171713304,
+            "atol": 0,
+            "rtol": 2e-05,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "fit.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 与认证参考采用相同模型/残差尺度；缩放变量后正确变换参数及协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nist-boxbod",
+      "split": "train",
+      "group": "nist-boxbod",
+      "capabilities": [
+        "data",
+        "fit",
+        "covariance_convention"
+      ],
+      "source": {
+        "organization": "NIST/ITL StRD",
+        "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/BoxBOD.dat",
+        "retrieved": "2026-11-02",
+        "source_sha256": "fc44fbed04e3be16df6498e722d4c8aedfd0af210110bc396d9f99acecd77e21",
+        "data_kind": "public_reference_observations"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/nist-boxbod",
+        "instruction": "读取 raw.csv、meta.json 与 fit-input.json，按给定缩放坐标和模型做无权最小二乘，不能把残差尺度当已知仪器精度。参数使用 fit-input.json 中名称/坐标，写 result.parameters 与 result.residual_std；保留参数协方差和残差。本任务只检验给定数值模型，不推断仪器或物理真实性。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "fit.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.parameters.amplitude",
+            "target": 213.80940889,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.parameters.rate",
+            "target": 0.54723748542,
+            "atol": 1e-08,
+            "rtol": 2e-05,
+            "critical": true
+          },
+          {
+            "path": "result.residual_std",
+            "target": 17.088072423,
+            "atol": 0,
+            "rtol": 2e-05,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "fit.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 与认证参考采用相同模型/残差尺度；缩放变量后正确变换参数及协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gum-h2-impedance",
+      "split": "selection",
+      "group": "gum-h2-impedance",
+      "capabilities": [
+        "data",
+        "correlation",
+        "type_a",
+        "units"
+      ],
+      "source": {
+        "organization": "JCGM",
+        "url": "https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf",
+        "section": "H.2, Tables H.2-H.4",
+        "data_kind": "published_numerical_example"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/gum-h2-impedance",
+        "instruction": "按 meta.json 的限定任务，用五组同时观测逐组计算 R/X/Z（电流先换为 A），然后评定各组结果均值及均值标准不确定度；保持配对关系，报告输出相关性。结果写 result.R/X/Z 的 value、u。不要增加本题未给出的仪器分量。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "propagation.json",
+          "analysis.py"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.R.value",
+            "target": 127.732,
+            "atol": 0.002,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.R.u",
+            "target": 0.071,
+            "atol": 0.002,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.X.value",
+            "target": 219.847,
+            "atol": 0.002,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.X.u",
+            "target": 0.295,
+            "atol": 0.002,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.Z.value",
+            "target": 254.26,
+            "atol": 0.002,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.Z.u",
+            "target": 0.236,
+            "atol": 0.002,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "propagation.json",
+          "analysis.py"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "保留配对或共享输入的协方差，不能擅自按独立来源合成。 区分单次标准差与均值标准不确定度；核验独立性、样本量和自由度。 换算过程可追溯，含导出量单位与协方差量纲。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "jcgm101-additive-normal",
+      "split": "train",
+      "group": "jcgm101-additive",
+      "capabilities": [
+        "propagation",
+        "coverage",
+        "monte_carlo"
+      ],
+      "source": {
+        "organization": "JCGM",
+        "url": "https://www.bipm.org/documents/20126/2071204/JCGM_101_2008_E.pdf",
+        "section": "9.2.2",
+        "data_kind": "published_model_reimplemented"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/jcgm101-additive-normal",
+        "instruction": "按 inputs.json 的独立分布评定无量纲四项和，运行公式与 MC，记录种子、样本量、批次和稳定性；标准不确定度相同不代表覆盖区间相同。写 result.value/u/lower/upper/mc_samples，lower/upper 为95%等尾覆盖端点。当前固定 helper 若不支持四输入，可在 results/ 写并实际执行 analysis.py。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "propagation.json",
+          "analysis.py"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 0,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 2.0,
+            "atol": 0.05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.lower",
+            "target": -3.919927969080109,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.upper",
+            "target": 3.919927969080109,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.mc_samples",
+            "min": 200000,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "propagation.json",
+          "analysis.py"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "说明概率、单双侧及区间定义；正态、t或分位数的选择符合题设。 核验实际抽样、联合分布、定义域、样本/种子及稳定性；均值和区间端点精度分别说明。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "jcgm101-additive-uniform-equal",
+      "split": "train",
+      "group": "jcgm101-additive",
+      "capabilities": [
+        "propagation",
+        "coverage",
+        "monte_carlo"
+      ],
+      "source": {
+        "organization": "JCGM",
+        "url": "https://www.bipm.org/documents/20126/2071204/JCGM_101_2008_E.pdf",
+        "section": "9.2.3",
+        "data_kind": "published_model_reimplemented"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/jcgm101-additive-uniform-equal",
+        "instruction": "按 inputs.json 的独立分布评定无量纲四项和，运行公式与 MC，记录种子、样本量、批次和稳定性；标准不确定度相同不代表覆盖区间相同。写 result.value/u/lower/upper/mc_samples，lower/upper 为95%等尾覆盖端点。当前固定 helper 若不支持四输入，可在 results/ 写并实际执行 analysis.py。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "propagation.json",
+          "analysis.py"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 0,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 2.0,
+            "atol": 0.05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.lower",
+            "target": -3.8794067413478204,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.upper",
+            "target": 3.8794067413478204,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.mc_samples",
+            "min": 200000,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "propagation.json",
+          "analysis.py"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "说明概率、单双侧及区间定义；正态、t或分位数的选择符合题设。 核验实际抽样、联合分布、定义域、样本/种子及稳定性；均值和区间端点精度分别说明。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "jcgm101-additive-uniform-dominant",
+      "split": "train",
+      "group": "jcgm101-additive",
+      "capabilities": [
+        "propagation",
+        "coverage",
+        "monte_carlo"
+      ],
+      "source": {
+        "organization": "JCGM",
+        "url": "https://www.bipm.org/documents/20126/2071204/JCGM_101_2008_E.pdf",
+        "section": "9.2.4",
+        "data_kind": "published_model_reimplemented"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/jcgm101-additive-uniform-dominant",
+        "instruction": "按 inputs.json 的独立分布评定无量纲四项和，运行公式与 MC，记录种子、样本量、批次和稳定性；标准不确定度相同不代表覆盖区间相同。写 result.value/u/lower/upper/mc_samples，lower/upper 为95%等尾覆盖端点。当前固定 helper 若不支持四输入，可在 results/ 写并实际执行 analysis.py。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "propagation.json",
+          "analysis.py"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 0,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 10.14889156509222,
+            "atol": 0.05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.lower",
+            "target": -17.015814099866674,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.upper",
+            "target": 17.015814099866674,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.mc_samples",
+            "min": 200000,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "propagation.json",
+          "analysis.py"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "说明概率、单双侧及区间定义；正态、t或分位数的选择符合题设。 核验实际抽样、联合分布、定义域、样本/种子及稳定性；均值和区间端点精度分别说明。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gum-h3-thermometer",
+      "split": "selection",
+      "group": "gum-h3-thermometer",
+      "capabilities": [
+        "fit",
+        "covariance",
+        "prediction",
+        "model_limits"
+      ],
+      "source": {
+        "organization": "JCGM",
+        "url": "https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf",
+        "section": "H.3, Table H.6",
+        "data_kind": "published_numerical_example"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/gum-h3-thermometer",
+        "instruction": "用 raw.csv 温度/修正量拟合 b(t)=intercept+slope*(t-20°C)，无权、残差缩放协方差。报告 result.intercept/slope，t=30°C 的 result.correction_30 与“拟合均值修正量”的 result.u_correction_30；保留斜率/截距协方差，不能加成新一次读数的预测散布。明确30°C属于外推，status=limited，issues包含 extrapolation。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "limited",
+            "critical": true
+          },
+          {
+            "path": "result.intercept",
+            "target": -0.17120379013134995,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.slope",
+            "target": 0.002182697739887265,
+            "atol": 1e-08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.correction_30",
+            "target": -0.1493768127324773,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u_correction_30",
+            "target": 0.004138595752854945,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "extrapolation",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 保留参数协方差，区分拟合均值与新观测预测的不确定度。 如实指出外推/适用范围，限制影响不靠status标签代替说明。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-repeat-mean-t",
+      "split": "train",
+      "group": "synthetic-repeat-mean-t",
+      "capabilities": [
+        "type_a",
+        "degrees_of_freedom",
+        "coverage"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-repeat-mean-t",
+        "instruction": "仅评定 inputs.json 中独立重复读数均值的 A 类分量，正态总体方差未知。报告 result.value/u/df/k95/U95；95%双侧用 Student t，不另加题目未给的仪器分量。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 10.1,
+            "atol": 1e-10,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.0070710678118653236,
+            "atol": 1e-10,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.df",
+            "target": 4,
+            "atol": 0,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.k95",
+            "target": 2.7764451051977934,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.U95",
+            "target": 0.01963243161477515,
+            "atol": 1e-09,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "区分单次标准差与均值标准不确定度；核验独立性、样本量和自由度。 总体方差未知的小样本与已知正态标准差分开处理，不机械要求或忽略自由度。 说明概率、单双侧及区间定义；正态、t或分位数的选择符合题设。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-resolution",
+      "split": "train",
+      "group": "synthetic-resolution",
+      "capabilities": [
+        "type_b",
+        "resolution"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-resolution",
+        "instruction": "仅把0.1 mm数字显示步距带来的舍入分量转为标准不确定度，误差为±d/2矩形分布。报告 result.u；不能把步距直接当 u。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.02886751345948129,
+            "atol": 1e-12,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "保留规格/证书的来源及分布依据；不能将允差、步距或扩展U直接当标准u。 矩形舍入误差半宽为d/2，按题设转换，不能把d当半宽。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-calibration-certificate",
+      "split": "train",
+      "group": "synthetic-calibration-certificate",
+      "capabilities": [
+        "type_b",
+        "corrections"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-calibration-certificate",
+        "instruction": "读数10 mV，证书修正量+0.002 mV；该修正的扩展不确定度0.004 mV、k=2。其他分量按本题设定为零。报告修正后 result.value 和标准 result.u，不能把U当u或把修正量当不确定度。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 10.002,
+            "atol": 1e-12,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.002,
+            "atol": 1e-12,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "保留规格/证书的来源及分布依据；不能将允差、步距或扩展U直接当标准u。 核验修正的符号与U/k转换；修正量与修正的不确定度分别记录。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-common-zero-cancellation",
+      "split": "selection",
+      "group": "synthetic-common-zero-cancellation",
+      "capabilities": [
+        "correlation",
+        "measurement_model"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-common-zero-cancellation",
+        "instruction": "两长度差Y=(A+C)-(B+C)，A=12 mm、u(A)=0.02 mm，B=10 mm、u(B)=0.03 mm，共享同一个零点C=0、u(C)=0.5 mm。A/B/C独立正态。保留共同C的依赖，报告 result.value/u；不能把两次C当独立。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 2,
+            "atol": 1e-10,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.03605551275463989,
+            "atol": 1e-08,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "保留配对或共享输入的协方差，不能擅自按独立来源合成。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-zero-gradient-square",
+      "split": "test",
+      "group": "synthetic-zero-gradient-square",
+      "capabilities": [
+        "nonlinear",
+        "monte_carlo",
+        "coverage"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-zero-gradient-square",
+        "instruction": "X为标准正态，Y=X²。评定分布传播下的均值、标准不确定度及95%等尾区间，写result.value/u/lower/upper。需MC并解释一阶梯度在0处失效、f(E[X])不等于E[Y]；status=limited，issues含 first_order_invalid。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "limited",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 1,
+            "atol": 0.03,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 1.4142135623730951,
+            "atol": 0.04,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.lower",
+            "target": 0.0009820691171752555,
+            "atol": 0.003,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.upper",
+            "target": 5.023886187314888,
+            "atol": 0.08,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "first_order_invalid",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "说明f(E[X])与E[f(X)]及高阶影响，零梯度不意味着零不确定度。 核验实际抽样、联合分布、定义域、样本/种子及稳定性；均值和区间端点精度分别说明。 说明概率、单双侧及区间定义；正态、t或分位数的选择符合题设。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-ratio-undefined-moments",
+      "split": "test",
+      "group": "synthetic-ratio-undefined-moments",
+      "capabilities": [
+        "domain",
+        "monte_carlo_limits"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-ratio-undefined-moments",
+        "instruction": "Y=1/Z，Z服从[-1,1]均匀分布。判断能否给出有限的总体标准不确定度；不得把一次有限MC样本标准差当存在的总体标准差。写status=limited、result=null，issues含 undefined_moments，并解释分母零点邻域导致矩发散。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "limited",
+            "critical": true
+          },
+          {
+            "path": "result",
+            "equals": null,
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "undefined_moments",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "解释总体矩的存在性；有限样本的有限标准差不能证明总体方差存在。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-odr-deming",
+      "split": "selection",
+      "group": "synthetic-odr-deming",
+      "capabilities": [
+        "fit",
+        "errors_in_variables"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-odr-deming",
+        "instruction": "按fit-input.json的独立x/y标准不确定度做误差变量直线拟合。报告result.intercept/slope；记录实际后端与观测调整，不得忽略ux。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.intercept",
+            "target": 1.0230018920707034,
+            "atol": 2e-05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.slope",
+            "target": 1.9884990539646483,
+            "atol": 1e-05,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 计入ux/uy的标准尺度与观测调整，不用仅竖直残差代替ODR目标。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-lmfit-constraint",
+      "split": "selection",
+      "group": "synthetic-lmfit-constraint",
+      "capabilities": [
+        "fit",
+        "constraints"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-lmfit-constraint",
+        "instruction": "拟合衰减模型并严格保持amplitude=10-offset，不能把依赖参数当第三个自由参数。报告result.offset/amplitude/tau/free_parameter_count并保留独立参数协方差。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.offset",
+            "target": 2,
+            "atol": 1e-05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.amplitude",
+            "target": 8,
+            "atol": 1e-05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.tau",
+            "target": 1.5,
+            "atol": 1e-05,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.free_parameter_count",
+            "target": 2,
+            "atol": 0,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 保持给定参数关系，自由参数计数/协方差不把依赖参数重复计入。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-fit-known-sigma",
+      "split": "train",
+      "group": "synthetic-fit-known-sigma",
+      "capabilities": [
+        "fit",
+        "absolute_covariance"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-fit-known-sigma",
+        "instruction": "已知各点独立标准不确定度uy=0.2 V，按绝对观测方差直线拟合；报告result.intercept/slope/u_intercept/u_slope，不得再用残差把协方差缩小。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.intercept",
+            "target": 1.0259999999999978,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.slope",
+            "target": 1.9870000000000012,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u_intercept",
+            "target": 0.1549193338482967,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u_slope",
+            "target": 0.0632455532033676,
+            "atol": 1e-07,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "核验权重/协方差缩放、参数顺序、收敛和残差；高相关系数不证明模型正确。 已知绝对观测标准差时不按小残差再次缩小参数协方差。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-data-quality",
+      "split": "train",
+      "group": "synthetic-data-quality",
+      "capabilities": [
+        "data",
+        "traceability"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-data-quality",
+        "instruction": "只做raw.csv质量画像，不删除/替换原始行。报告result.row_count、invalid_time_cells、duplicate_rows、negative_length_cells。负值是待核查观测，不直接当无效单元格；本题重复指整行完全重复。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.row_count",
+            "target": 6,
+            "atol": 0,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.invalid_time_cells",
+            "target": 2,
+            "atol": 0,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.duplicate_rows",
+            "target": 1,
+            "atol": 0,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.negative_length_cells",
+            "target": 1,
+            "atol": 0,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "疑似异常/完全重复仅标记，保留行号和原值，不能擅自删改。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-unit-density",
+      "split": "test",
+      "group": "synthetic-unit-density",
+      "capabilities": [
+        "units",
+        "propagation",
+        "monte_carlo"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-unit-density",
+        "instruction": "给定圆柱m=125 g、D=25 mm、H=50 mm，相应已知标准不确定度0.2 g、0.02 mm、0.04 mm，独立正态且题设模型适用。先记录SI换算，按rho=4m/(pi*D²H)运行公式和MC。写result.value/u/unit，u用一阶传播；MC作核验，不强行固定5%通过线。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 5092.95817894065,
+            "atol": 0,
+            "rtol": 1e-07,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 12.22309962945756,
+            "atol": 0,
+            "rtol": 1e-06,
+            "critical": true
+          },
+          {
+            "path": "result.unit",
+            "equals": "kg/m^3",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "换算过程可追溯，含导出量单位与协方差量纲。 核验实际抽样、联合分布、定义域、样本/种子及稳定性；均值和区间端点精度分别说明。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-uniform-coverage",
+      "split": "selection",
+      "group": "synthetic-uniform-coverage",
+      "capabilities": [
+        "coverage",
+        "non_normal"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-uniform-coverage",
+        "instruction": "Y在[9.5,10.5] mΩ均匀分布。求均值、标准不确定度和95%等尾区间，写result.value/u/lower/upper/k95；k95定义为95%半宽/u，不能统一取2。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "analysis.py",
+          "analysis.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 10,
+            "atol": 1e-10,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.2886751345948129,
+            "atol": 1e-10,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.lower",
+            "target": 9.525,
+            "atol": 1e-09,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.upper",
+            "target": 10.475,
+            "atol": 1e-09,
+            "rtol": 0,
+            "critical": true
+          },
+          {
+            "path": "result.k95",
+            "target": 1.6454482671904334,
+            "atol": 1e-09,
+            "rtol": 0,
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "analysis.py",
+          "analysis.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "说明概率、单双侧及区间定义；正态、t或分位数的选择符合题设。 非正态覆盖区间按其分布求取，不能一律使用±2u。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "synthetic-missing-instrument",
+      "split": "test",
+      "group": "synthetic-missing-instrument",
+      "capabilities": [
+        "clarification",
+        "instrument_sources"
+      ],
+      "source": {
+        "organization": "physics-lab-agent authors",
+        "data_kind": "authored_synthetic",
+        "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+      },
+      "reference_status": "independently_checkable_development_reference",
+      "public": {
+        "data_directory": "data/public/synthetic-missing-instrument",
+        "instruction": "单次长度读数12.3 mm，要求完整不确定度。没有仪器类型/量程/分辨力/准确度、校准或先验重复性，目前无法补充；不能由小数位推出仪器精度。result=null、issues含instrument_spec_missing。 输出直接放 results/，包含 report.json/report.md；数值结果保留保护位数，实际执行并引用证据。",
+        "required_evidence": [
+          "intake.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "needs_information",
+            "critical": true
+          },
+          {
+            "path": "result",
+            "equals": null,
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "instrument_spec_missing",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "intake.json"
+        ],
+        "rubric": {
+          "version": "scientific-rubric-v1",
+          "criteria": [
+            {
+              "id": "data",
+              "critical": true,
+              "requirement": "列、单位、测量条件及来源与本题输入一致；转换/排除有记录，事实与假设分开。"
+            },
+            {
+              "id": "model",
+              "critical": true,
+              "requirement": "被测量、模型/分析范围、修正和依赖关系有依据；只做题目要求，不虚构遗漏信息。"
+            },
+            {
+              "id": "method",
+              "critical": true,
+              "requirement": "识别决定性缺项、给最小补充问题，解释为何不能定量；不编造单位/规格/结果。"
+            },
+            {
+              "id": "reproducibility",
+              "critical": true,
+              "requirement": "逐一核对代码/命令、真实轨迹、文件与报告数字；至少独立复算关键量。澄清题只需真实信息核对证据，不强制无意义数值代码。"
+            },
+            {
+              "id": "reporting",
+              "critical": false,
+              "requirement": "结论、单位、不确定度/区间含义、依据与重要局限清楚；最终修约与未修约值分开。没有计算的澄清题明确缺项与下一步。标题齐全本身不代表内容正确。"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "scoring_version": "scientific-rubric-v1"
+}

@@ -1,0 +1,3 @@
+-r requirements.txt
+# Optional high-level MC propagation backend; NumPy/SciPy stays the default.
+punpy>=1.1,<1.2

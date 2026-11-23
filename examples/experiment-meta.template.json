@@ -1,0 +1,15 @@
+{
+  "template_only": true,
+  "data_kind": "real",
+  "experiment_name": null,
+  "objective": null,
+  "measurand": null,
+  "columns": {},
+  "measurement_procedure": null,
+  "repeated_readings_conditions": null,
+  "instruments": [],
+  "calibration_and_corrections": [],
+  "known_shared_error_sources": [],
+  "model_and_source": null,
+  "note": "信息登记模板；null 表示待确认，不是计算输入。仪器条目写名称、型号、量程、分辨力、准确度原文和资料来源；不要把分辨力直接当作标准不确定度。"
+}

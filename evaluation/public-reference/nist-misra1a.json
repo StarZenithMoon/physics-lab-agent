@@ -1,0 +1,20 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Misra1a.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "9d3194d537d9a6bbf92eb819504070923a1885d0191f40b6b3aaeedd130b98e2",
+  "data_kind": "public_reference_observations",
+  "original_parameters": {
+    "amplitude": 238.94212918,
+    "rate": 0.00055015643181
+  },
+  "normalized_parameters": {
+    "amplitude": 238.94212918,
+    "rate": 0.55015643181
+  },
+  "normalized_parameter_sd": [
+    2.7070075241,
+    0.0072668688436
+  ],
+  "residual_std": 0.1018787633
+}

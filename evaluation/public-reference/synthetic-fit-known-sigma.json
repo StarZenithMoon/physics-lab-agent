@@ -1,0 +1,17 @@
+{
+  "source": {
+    "organization": "physics-lab-agent authors",
+    "data_kind": "authored_synthetic",
+    "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+  },
+  "report": {
+    "status": "complete",
+    "result": {
+      "intercept": 1.0259999999999978,
+      "slope": 1.9870000000000012,
+      "u_intercept": 0.1549193338482967,
+      "u_slope": 0.0632455532033676
+    }
+  },
+  "basis": "Independent algebra/distribution or certified reference; no Agent-generated answer used."
+}

@@ -1,0 +1,18 @@
+{
+  "source": {
+    "organization": "physics-lab-agent authors",
+    "data_kind": "authored_synthetic",
+    "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+  },
+  "values": [
+    10.12,
+    10.08,
+    10.11,
+    10.09,
+    10.1
+  ],
+  "unit": "mm",
+  "independent": true,
+  "population": "normal, variance unknown",
+  "scope": "Type A mean only"
+}

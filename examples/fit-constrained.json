@@ -1,0 +1,11 @@
+{
+  "data_kind":"simulated",
+  "backend":"lmfit",
+  "model":"linear",
+  "parameters":{"intercept":{"value":1,"expr":"slope/2"},"slope":{"value":1.5,"min":0}},
+  "x":[0,1,2,3,4],
+  "y":[1.05,2.92,5.10,6.96,8.97],
+  "uy":[0.1,0.1,0.1,0.1,0.1],
+  "x_unit":"1",
+  "y_unit":"1"
+}

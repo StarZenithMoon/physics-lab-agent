@@ -1,0 +1,23 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Chwirut2.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "c37e5522a34f9a57e18d7d10f8736202eabc0c33b8e7ad0010e618db04b57411",
+  "data_kind": "public_reference_observations",
+  "original_parameters": {
+    "decay": 0.16657666537,
+    "offset": 0.0051653291286,
+    "linear": 0.012150007096
+  },
+  "normalized_parameters": {
+    "decay": 0.16657666537,
+    "offset": 0.0051653291286,
+    "linear": 0.012150007096
+  },
+  "normalized_parameter_sd": [
+    0.03830328681,
+    0.00066621605126,
+    0.0015304234767
+  ],
+  "residual_std": 3.171713304
+}

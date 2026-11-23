@@ -1,0 +1,11 @@
+{
+  "source": {
+    "organization": "physics-lab-agent authors",
+    "data_kind": "authored_synthetic",
+    "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+  },
+  "reading": 12.3,
+  "unit": "mm",
+  "instrument": null,
+  "prior_repeatability": null
+}

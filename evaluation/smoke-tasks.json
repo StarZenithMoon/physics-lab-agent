@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.2",
+  "visibility": "public",
+  "purpose": "two synthetic integration smoke tests; not a formal benchmark",
+  "tasks": [
+    {
+      "id": "smoke-sum",
+      "split": "train",
+      "public": {
+        "instruction": "评定无量纲和 Y=x+z。x=2,u(x)=0.1；z=3,u(z)=0.2。独立正态输入，u 均为已知标准不确定度。运行两路传播，报告标准不确定度、模型和证据。原始输入来源为本合成任务。",
+        "required_evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 5,
+            "atol": 1e-10,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.22360679774997896,
+            "atol": 1e-05,
+            "critical": true
+          },
+          {
+            "path": "result.unit",
+            "equals": "1",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      }
+    },
+    {
+      "id": "smoke-missing",
+      "split": "train",
+      "public": {
+        "instruction": "单次测得某长度为 12.3，要求完整定量不确定度。未给单位、仪器信息和先验重复性；目前无法补充。请给出适当状态及缺项记录，不编造数据。issues 用 unit_missing、instrument_spec_missing 标识对应缺项。",
+        "required_evidence": [
+          "intake.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "needs_information",
+            "critical": true
+          },
+          {
+            "path": "result",
+            "equals": null,
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "unit_missing",
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "instrument_spec_missing",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "intake.json"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "physics-lab-agent-v3-public-evaluation",
+  "resource_containment": "Windows Job Object for the entire task process tree; 1024 MiB hard commit limit, 75% advisory warning recorded without terminating; hard memory allocation denial/process-count/log limits terminate task; 10 percent CPU; 32 processes; one task at a time; single-thread numerical libraries; 1536 MiB admission and 512 MiB runtime host reserve; wait up to 300 seconds before creating a worker; streamed logs and atomic task checkpoints before bounded scratch cleanup",
+  "rubric_version": "scientific-rubric-v1",
+  "repetitions": 3,
+  "infrastructure_retries": 1,
+  "retry_statuses": [
+    "provider_error",
+    "process_failed"
+  ],
+  "budget_failure_statuses": [
+    "step_limit",
+    "incomplete_output",
+    "timeout",
+    "resource_limit"
+  ],
+  "task_failure_statuses": [
+    "boundary_violation"
+  ],
+  "workspace_integrity": "Hash original immutable files individually using bounded streaming. Modified/deleted inputs or additions in fixed source roots stop the batch and retain scratch. New outputs outside results/memory in other roots are a zero-score boundary_violation; preserve those outputs under task runner logs. No prior attempts are relabeled or reused.",
+  "integrity_failure_statuses": [
+    "fixed_files_changed",
+    "supervisor_error",
+    "cleanup_failed",
+    "artifact_save_failed",
+    "host_memory_low",
+    "resource_busy",
+    "interrupted",
+    "provider_quota_exhausted"
+  ],
+  "acceptance": "mean scientific score gain >= configured threshold; no per-task mean score, gate pass rate or success rate regression across three repetitions",
+  "final_test": "public test after candidate selection; never proposer feedback; test split is included in the repository",
+  "review": "operator outside task session; reasons, artifact/trace hashes and independent numerical check; not teacher certification or dual-human blind review",
+  "cost": "60 model steps and 300 execution wall seconds per task, excluding separately recorded pre-start admission wait; record provider token/cost fields if present, unknown is null; no hard monetary cap claimed",
+  "note": "Fresh sessions for all replicates; model sampling is stochastic and provider model ID may not pin immutable upstream weights. Report all attempts; never rerun a wrong answer for a better score."
+}

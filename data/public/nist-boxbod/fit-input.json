@@ -1,0 +1,28 @@
+{
+  "x": [
+    1.0,
+    2.0,
+    3.0,
+    5.0,
+    7.0,
+    10.0
+  ],
+  "y": [
+    109.0,
+    149.0,
+    149.0,
+    191.0,
+    213.0,
+    224.0
+  ],
+  "x_unit": "scaled_source_coordinate",
+  "y_unit": "source_coordinate",
+  "model": "expression",
+  "parameters": {
+    "amplitude": 100,
+    "rate": 0.75
+  },
+  "backend": "scipy",
+  "absolute_sigma": false,
+  "expression": "amplitude*(1-exp(-rate*x))"
+}

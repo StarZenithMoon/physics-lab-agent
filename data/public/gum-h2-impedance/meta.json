@@ -1,0 +1,14 @@
+{
+  "organization": "JCGM",
+  "url": "https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf",
+  "section": "H.2, Tables H.2-H.4",
+  "data_kind": "published_numerical_example",
+  "procedure": "Five simultaneous triples; keep pairing. I is in mA.",
+  "model": {
+    "R": "(V/I)*cos(phi)",
+    "X": "(V/I)*sin(phi)",
+    "Z": "V/I"
+  },
+  "scope": "Type A repeatability only, use the mean of per-triple outputs (H.2 approach 2). No extra instrument components are specified.",
+  "mc": "Not requested: assigning an extra joint PDF is outside this raw-observation task."
+}

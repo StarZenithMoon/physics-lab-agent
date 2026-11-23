@@ -1,0 +1,12 @@
+{
+  "organization": "JCGM",
+  "url": "https://www.bipm.org/documents/20126/2071204/JCGM_101_2008_E.pdf",
+  "section": "9.2.3",
+  "data_kind": "published_model_reimplemented",
+  "value": 0.0,
+  "u": 2.0,
+  "lower": -3.8794067413478204,
+  "upper": 3.8794067413478204,
+  "reference_method": "analytic moments and exact convolution/normal inverse CDF",
+  "tolerance_basis": "0.05 standard-u and 0.08 endpoint tolerance for >=200000 MC samples; not a universal GUM validation threshold."
+}

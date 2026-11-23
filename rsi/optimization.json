@@ -1,0 +1,16 @@
+{
+  "kind": "coordinate-skill-optimization-v1",
+  "schedule": ["measurement-uncertainty", "least-squares-fit", "experimental-data-processing"],
+  "max_candidates": 3,
+  "repetitions": 3,
+  "selection_min_gain": 0.0,
+  "max_per_task_regression": 3.0,
+  "max_per_task_pass_rate_regression": 0.3333333333333333,
+  "overall_observation_regression_allowance": 1,
+  "proposal_context": "fresh context, train feedback only; no selection/test/private details",
+  "proposal_max_chars": 240000,
+  "evidence_excerpt_chars": 5000,
+  "max_evidence_cases": 3,
+  "strategy": "one component from the current accepted bundle; full train/selection regression; no merge/Pareto search in this small-budget experiment",
+  "research_claim": "GEPA-inspired coordinate reflective optimization, not the GEPA algorithm or a weight-training method"
+}

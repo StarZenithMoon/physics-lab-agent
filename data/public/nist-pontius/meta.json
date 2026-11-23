@@ -1,0 +1,17 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/lls/data/LINKS/DATA/Pontius.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "de60baa5dc66fd804f9316f895bc5aa2b8f791c09d1ecc1ec39f8b199b8c15c7",
+  "data_kind": "public_reference_observations",
+  "n": 40,
+  "raw_columns": [
+    "y",
+    "x"
+  ],
+  "x_transform": "x_model = x_source / 1e+06",
+  "units": "The source numerical coordinates are retained; no SI unit is inferred.",
+  "uncertainty_convention": "unweighted least squares, covariance scaled by residual variance; not known instrument uncertainty",
+  "model": "quadratic",
+  "source_answer_removed_from_inputs": true
+}

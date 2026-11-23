@@ -1,0 +1,20 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/lls/data/LINKS/DATA/Norris.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "5ab6906c68a9c4b2eb1661c0cd7d2a09f5a469a6d4e05b6b691f190f5f7b944f",
+  "data_kind": "public_reference_observations",
+  "original_parameters": {
+    "intercept": -0.262323073774029,
+    "slope": 1.00211681802045
+  },
+  "normalized_parameters": {
+    "intercept": -0.262323073774029,
+    "slope": 1.00211681802045
+  },
+  "normalized_parameter_sd": [
+    0.232818234301152,
+    0.000429796848199937
+  ],
+  "residual_std": 0.884796396144373
+}

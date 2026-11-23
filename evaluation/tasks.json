@@ -1,0 +1,266 @@
+{
+  "schema_version": "0.1",
+  "notice": "Public scaffold cases only; replace/expand and externally isolate final tests before research claims.",
+  "tasks": [
+    {
+      "id": "train-sum",
+      "split": "train",
+      "public": {
+        "instruction": "评定无量纲和 Y=x+z。x=2,u(x)=0.1；z=3,u(z)=0.2。独立正态输入，u 均为已知标准不确定度。运行两路传播，报告标准不确定度、模型和证据。原始输入来源为本合成任务。",
+        "required_evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 5,
+            "atol": 1e-10,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.22360679774997896,
+            "atol": 1e-05,
+            "critical": true
+          },
+          {
+            "path": "result.unit",
+            "equals": "1",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      }
+    },
+    {
+      "id": "train-missing-instrument",
+      "split": "train",
+      "public": {
+        "instruction": "单次测得某长度为 12.3，要求完整定量不确定度。未给单位、仪器信息和先验重复性；目前无法补充。请给出适当状态及缺项记录，不编造数据。issues 用 unit_missing、instrument_spec_missing 标识对应缺项。",
+        "required_evidence": [
+          "intake.json"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "needs_information",
+            "critical": true
+          },
+          {
+            "path": "result",
+            "equals": null,
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "unit_missing",
+            "critical": true
+          },
+          {
+            "path": "issues",
+            "contains": "instrument_spec_missing",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "intake.json"
+        ]
+      }
+    },
+    {
+      "id": "selection-correlated-difference",
+      "split": "selection",
+      "public": {
+        "instruction": "评定无量纲差 Y=x-z。x=3,z=2，各标准不确定度均为0.1，联合正态，相关系数0.8。以本合成题给定联合分布为来源。计算结果、预算和MC核验，不忽略相关项。",
+        "required_evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "target": 1,
+            "atol": 1e-10,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 0.06324555320336758,
+            "atol": 1e-05,
+            "critical": true
+          },
+          {
+            "path": "result.unit",
+            "equals": "1",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      }
+    },
+    {
+      "id": "selection-pendulum",
+      "split": "selection",
+      "public": {
+        "instruction": "使用 data/demo-pendulum/ 的模拟数据，按实验背景分析单摆测g。写明简化来源和局限，不能描述为真实实验。评测工作区已按题隔离，产物直接放 results/。",
+        "data_directory": "data/demo-pendulum",
+        "required_evidence": [
+          "profile.json",
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "limited",
+            "critical": true
+          },
+          {
+            "path": "data_kind",
+            "equals": "simulated",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "min": 9.7,
+            "max": 9.9,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "min": 0.002,
+            "max": 0.01,
+            "critical": true
+          },
+          {
+            "path": "result.unit",
+            "equals": "m/s^2",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "profile.json",
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      }
+    },
+    {
+      "id": "test-zero-gradient-product",
+      "split": "test",
+      "public": {
+        "instruction": "无量纲 Y=x*z，x,z 独立标准正态，各均值0、标准差1。检查一阶传播是否适用，使用分布传播评定标准不确定度，报告局限。输入分布由本合成任务完全给定。",
+        "required_evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "limited",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "min": -0.03,
+            "max": 0.03,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "target": 1,
+            "atol": 0.03,
+            "critical": true
+          },
+          {
+            "path": "result.method",
+            "equals": "monte_carlo",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      }
+    },
+    {
+      "id": "test-density",
+      "split": "test",
+      "public": {
+        "instruction": "合成圆柱：m=0.1 kg、D=0.02 m、H=0.04 m，各标准不确定度为0.0001 kg、0.00001 m、0.00002 m；独立矩形输入，输入及局部分布由本任务给定。按 rho=4m/(pi*D^2*H) 计算密度和标准不确定度，执行MC对照。明确这是给定模型下的结果。",
+        "required_evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      },
+      "expected": {
+        "checks": [
+          {
+            "path": "status",
+            "equals": "complete",
+            "critical": true
+          },
+          {
+            "path": "result.value",
+            "min": 7957,
+            "max": 7958,
+            "critical": true
+          },
+          {
+            "path": "result.u",
+            "min": 11.9,
+            "max": 12.0,
+            "critical": true
+          },
+          {
+            "path": "result.unit",
+            "equals": "kg/m^3",
+            "critical": true
+          }
+        ],
+        "evidence": [
+          "model.json",
+          "calculation.json",
+          "budget.csv"
+        ]
+      }
+    }
+  ]
+}

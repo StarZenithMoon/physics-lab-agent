@@ -1,0 +1,23 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/lls/data/LINKS/DATA/Pontius.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "de60baa5dc66fd804f9316f895bc5aa2b8f791c09d1ecc1ec39f8b199b8c15c7",
+  "data_kind": "public_reference_observations",
+  "original_parameters": {
+    "intercept": 0.000673565789473684,
+    "linear": 7.32059160401003e-07,
+    "quadratic": -3.16081871345029e-15
+  },
+  "normalized_parameters": {
+    "intercept": 0.000673565789473684,
+    "linear": 0.732059160401003,
+    "quadratic": -0.00316081871345029
+  },
+  "normalized_parameter_sd": [
+    0.000107938612033077,
+    0.000157817399981659,
+    4.8665284999203595e-05
+  ],
+  "residual_std": 0.000205177424076185
+}

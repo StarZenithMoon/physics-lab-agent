@@ -1,0 +1,39 @@
+{
+  "source": {
+    "organization": "physics-lab-agent authors",
+    "data_kind": "authored_synthetic",
+    "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+  },
+  "x": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "y": [
+    1.05,
+    2.92,
+    5.1,
+    6.96,
+    8.97
+  ],
+  "ux": [
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "uy": [
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+  ],
+  "x_unit": "A",
+  "y_unit": "V",
+  "model": "linear",
+  "absolute_sigma": true
+}

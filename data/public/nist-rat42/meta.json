@@ -1,0 +1,17 @@
+{
+  "organization": "NIST/ITL StRD",
+  "url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Rat42.dat",
+  "retrieved": "2026-11-02",
+  "source_sha256": "fc97dd1f94fbcb381495065a053e279f23588a9ceb243276f2a2c36c8225985b",
+  "data_kind": "public_reference_observations",
+  "n": 9,
+  "raw_columns": [
+    "y",
+    "x"
+  ],
+  "x_transform": "x_model = x_source / 1",
+  "units": "The source numerical coordinates are retained; no SI unit is inferred.",
+  "uncertainty_convention": "unweighted least squares, covariance scaled by residual variance; not known instrument uncertainty",
+  "model": "amplitude/(1+exp(center-rate*x))",
+  "source_answer_removed_from_inputs": true
+}

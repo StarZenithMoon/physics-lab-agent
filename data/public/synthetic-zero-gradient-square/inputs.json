@@ -1,0 +1,15 @@
+{
+  "source": {
+    "organization": "physics-lab-agent authors",
+    "data_kind": "authored_synthetic",
+    "method_source": "GUM/JCGM methods; numerical inputs are original test design, not copied official experiments"
+  },
+  "model": "Y=X**2",
+  "X": {
+    "mean": 0,
+    "u": 1,
+    "distribution": "normal"
+  },
+  "minimum_mc_samples": 200000,
+  "unit": "1"
+}

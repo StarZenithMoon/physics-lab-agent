@@ -1,0 +1,42 @@
+{
+  "organization": "JCGM",
+  "url": "https://www.bipm.org/documents/20126/2071204/JCGM_101_2008_E.pdf",
+  "section": "9.2.3",
+  "data_kind": "published_model_reimplemented",
+  "model": "Y=X1+X2+X3+X4",
+  "unit": "1",
+  "independent": true,
+  "inputs": [
+    {
+      "name": "X1",
+      "value": 0,
+      "u": 1,
+      "distribution": "uniform"
+    },
+    {
+      "name": "X2",
+      "value": 0,
+      "u": 1,
+      "distribution": "uniform"
+    },
+    {
+      "name": "X3",
+      "value": 0,
+      "u": 1,
+      "distribution": "uniform"
+    },
+    {
+      "name": "X4",
+      "value": 0,
+      "u": 1,
+      "distribution": "uniform"
+    }
+  ],
+  "scope": "Given mathematical inputs, no missing experimental instrument facts.",
+  "mc": {
+    "minimum_samples": 200000,
+    "batches": 5,
+    "coverage": 0.95,
+    "seed": 42
+  }
+}

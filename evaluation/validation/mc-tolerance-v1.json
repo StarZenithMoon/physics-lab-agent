@@ -1,0 +1,76 @@
+{
+  "mode": "numerical_tolerance_validation_not_agent_evaluation",
+  "seed_sequence": [
+    2026110401,
+    "replicate-index"
+  ],
+  "all_passed": true,
+  "records": [
+    {
+      "task_id": "jcgm101-additive-normal",
+      "replicates": 1000,
+      "samples": 200000,
+      "false_rejections": 0,
+      "one_sided_95_upper": 0.002991249545095295,
+      "target_upper": 0.02,
+      "passed": true,
+      "max_absolute_deviation": {
+        "value": 0.01577865305677616,
+        "u": 0.009540762998990981,
+        "lower": 0.03919019350986597,
+        "upper": 0.04363427711909118
+      },
+      "failures": []
+    },
+    {
+      "task_id": "jcgm101-additive-uniform-equal",
+      "replicates": 1000,
+      "samples": 200000,
+      "false_rejections": 0,
+      "one_sided_95_upper": 0.002991249545095295,
+      "target_upper": 0.02,
+      "passed": true,
+      "max_absolute_deviation": {
+        "value": 0.014560611734930486,
+        "u": 0.010829491199026986,
+        "lower": 0.03201678700306365,
+        "upper": 0.04191717166681208
+      },
+      "failures": []
+    },
+    {
+      "task_id": "jcgm101-additive-uniform-dominant",
+      "replicates": 1000,
+      "samples": 200000,
+      "false_rejections": 0,
+      "one_sided_95_upper": 0.002991249545095295,
+      "target_upper": 0.02,
+      "passed": true,
+      "max_absolute_deviation": {
+        "value": 0.07346689635017063,
+        "u": 0.03619181032273211,
+        "lower": 0.062177811118925064,
+        "upper": 0.06982110939921427
+      },
+      "failures": []
+    },
+    {
+      "task_id": "synthetic-zero-gradient-square",
+      "replicates": 1000,
+      "samples": 200000,
+      "false_rejections": 0,
+      "one_sided_95_upper": 0.002991249545095295,
+      "target_upper": 0.02,
+      "passed": true,
+      "max_absolute_deviation": {
+        "value": 0.010453188135936764,
+        "u": 0.016370894514729395,
+        "lower": 0.00010015018567676652,
+        "upper": 0.07316200421711816
+      },
+      "failures": []
+    }
+  ],
+  "model_calls": 0,
+  "limitation": "Public mathematical models, fixed minimum samples, independent sampler; not a validation of arbitrary Agent code or physical model adequacy."
+}

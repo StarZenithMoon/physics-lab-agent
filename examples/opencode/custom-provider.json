@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "lab-custom/analysis",
+  "default_agent": "lab-assistant",
+  "providers": {
+    "lab-custom": {
+      "name": "Custom OpenAI-compatible provider",
+      "env": ["LAB_PROVIDER_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {"baseURL": "https://gateway.example/v1"},
+      "models": {"analysis": {"name": "Replace with your model", "modelID": "YOUR_UPSTREAM_MODEL_ID"}}
+    }
+  }
+}
